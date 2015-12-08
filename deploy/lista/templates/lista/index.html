@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% for contato in contatos %}
+        {{ contato.codigo }}
+        {{ contato.nome }}
+        {{ contato.email }}
+    {% endfor %}
+
+</body>
+</html>
