@@ -38,9 +38,10 @@
                     <table class="table .table-condensed">
                     <thead>
                         <tr>
-                            <th class="col-md-1" align="left">Codigo</th>
+                            <th class="col-md-1" align="right">#</th>
                             <th class="col-md-3" align="left">Nome</th>
                             <th class="col-md-8" align="left">Email</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +50,15 @@
                                 <td class="col-md-1" align="right">{{ contato.codigo }}</td>
                                 <td class="col-md-3" align="left">{{ contato.nome }}</td>
                                 <td class="col-md-8" align="left">{{ contato.email }}</td>
+                                <td>
+                                    <form id="form" method="post" action="/excluir/">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="codigo" value="{{ contato.codigo }}">
+                                        <button onclick="$('form').submit()" class="btn btn-xs btn-primary">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
