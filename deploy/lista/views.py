@@ -12,3 +12,12 @@ def index(request):
     return HttpResponse(template.render(context))
 
 
+def gravar(request):
+
+    contato = Contatos()
+    contato.nome = request.POST['nome']
+    contato.email = request.POST['email']
+    contato.save()
+
+
+    return index(request)
